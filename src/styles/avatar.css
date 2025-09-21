@@ -1,0 +1,164 @@
+.avatar-sprite {
+  --sprite-size: 90px;
+  width: var(--sprite-size);
+  height: calc(var(--sprite-size) * 1.2);
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  filter: drop-shadow(0 6px 0 rgba(0, 0, 0, 0.1));
+  image-rendering: pixelated;
+}
+
+.avatar-sprite .sprite-head,
+.avatar-sprite .sprite-body,
+.avatar-sprite .sprite-feet span {
+  border-radius: 12px;
+  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.2);
+}
+
+.avatar-sprite .sprite-head {
+  width: 68%;
+  height: 45%;
+  background: var(--head-color);
+  position: relative;
+  margin-bottom: calc(var(--sprite-size) * 0.05);
+}
+
+.avatar-sprite .sprite-head::before,
+.avatar-sprite .sprite-head::after {
+  content: "";
+  position: absolute;
+  top: 45%;
+  width: 16%;
+  height: 16%;
+  background: #1f2a44;
+  border-radius: 50%;
+}
+
+.avatar-sprite .sprite-head::before {
+  left: 24%;
+}
+
+.avatar-sprite .sprite-head::after {
+  right: 24%;
+}
+
+.avatar-sprite .sprite-body {
+  width: 80%;
+  flex: 1;
+  background: linear-gradient(var(--body-color), var(--body-shadow));
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar-sprite .sprite-body::before {
+  content: "";
+  width: 32%;
+  height: 32%;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.avatar-sprite .sprite-feet {
+  display: flex;
+  gap: 12px;
+  position: absolute;
+  bottom: -8px;
+}
+
+.avatar-sprite .sprite-feet span {
+  display: inline-block;
+  width: 24px;
+  height: 16px;
+  background: var(--feet-color);
+}
+
+.avatar-sprite.walk .sprite-feet span:first-child {
+  animation: step-left 0.6s infinite alternate;
+}
+
+.avatar-sprite.walk .sprite-feet span:last-child {
+  animation: step-right 0.6s infinite alternate;
+}
+
+.avatar-sprite.bounce {
+  animation: float 2s ease-in-out infinite;
+}
+
+.avatar-sprite.flip {
+  transform: scaleX(-1);
+}
+
+.avatar-sprite[data-type="human"] {
+  --head-color: #ffd8c2;
+  --body-color: #6db0ff;
+  --body-shadow: #3d6fd1;
+  --feet-color: #26457a;
+}
+
+.avatar-sprite[data-type="cat"] {
+  --head-color: #ffe4a7;
+  --body-color: #ff9d73;
+  --body-shadow: #db6545;
+  --feet-color: #5c2d22;
+}
+
+.avatar-sprite[data-type="robot"] {
+  --head-color: #cfd8dc;
+  --body-color: #90a4ae;
+  --body-shadow: #546e7a;
+  --feet-color: #37474f;
+}
+
+.avatar-sprite[data-type="wizard"] {
+  --head-color: #f8e4ff;
+  --body-color: #a678ff;
+  --body-shadow: #5e35b1;
+  --feet-color: #3a2279;
+}
+
+.avatar-sprite[data-type="dragon"] {
+  --head-color: #ff9c9c;
+  --body-color: #ff4f5a;
+  --body-shadow: #b71c1c;
+  --feet-color: #650000;
+}
+
+.avatar-sprite[data-type="bug"] {
+  --head-color: #d1ffc6;
+  --body-color: #7be495;
+  --body-shadow: #24b47e;
+  --feet-color: #146b3a;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes step-left {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(4px);
+  }
+}
+
+@keyframes step-right {
+  0% {
+    transform: translateY(4px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
