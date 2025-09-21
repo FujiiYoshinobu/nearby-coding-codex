@@ -1,0 +1,236 @@
+.setup-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+}
+
+.setup-card {
+  width: min(960px, 100%);
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 24px;
+  padding: 32px 40px;
+  box-shadow: 0 20px 60px rgba(31, 42, 68, 0.15);
+  backdrop-filter: blur(16px);
+  border: 3px solid #c4d3ff;
+}
+
+.setup-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.setup-header h1 {
+  font-family: "Press Start 2P", cursive;
+  font-size: clamp(22px, 3vw, 28px);
+  color: #1f2a44;
+  letter-spacing: 4px;
+  margin-bottom: 12px;
+}
+
+.setup-header p {
+  margin: 0;
+  color: #3c4f7c;
+  font-weight: 600;
+}
+
+.setup-body {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 32px;
+}
+
+.preview-pane {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 16px;
+  border-radius: 20px;
+  background: linear-gradient(145deg, rgba(210, 224, 255, 0.6), rgba(255, 255, 255, 0.95));
+  border: 2px dashed #9aa9ff;
+}
+
+.avatar-preview {
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 18px;
+  border: 3px solid #c3d0ff;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.level-info {
+  width: 100%;
+  display: grid;
+  gap: 8px;
+  justify-items: center;
+  text-align: center;
+}
+
+.level-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(90deg, #5e7bff, #96a8ff);
+  color: white;
+  border-radius: 999px;
+  padding: 8px 22px;
+  font-weight: 700;
+  font-size: 15px;
+  box-shadow: 0 6px 12px rgba(94, 123, 255, 0.35);
+}
+
+.progress-bar {
+  width: 100%;
+  height: 12px;
+  border-radius: 12px;
+  background: rgba(95, 118, 200, 0.2);
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-bar .fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, #ffd05a, #ff9c5a);
+  transition: width 0.4s ease-out;
+}
+
+.progress-text {
+  font-size: 13px;
+  color: #465379;
+}
+
+.progress-percent {
+  font-weight: 700;
+  color: #ff7b5c;
+}
+
+.setup-form {
+  display: grid;
+  gap: 20px;
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+  font-weight: 600;
+  color: #3c4f7c;
+}
+
+.field input {
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 2px solid #c6d5ff;
+  background: white;
+  font-size: 15px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.field input:focus {
+  outline: none;
+  border-color: #7d92ff;
+  box-shadow: 0 0 0 4px rgba(125, 146, 255, 0.2);
+}
+
+.field.avatars {
+  border: none;
+  padding: 0;
+}
+
+.field.avatars legend {
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.avatar-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 16px;
+}
+
+.avatar-option {
+  position: relative;
+  display: grid;
+  gap: 8px;
+  justify-items: center;
+  padding: 16px 12px 14px;
+  border-radius: 16px;
+  border: 2px solid transparent;
+  background: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  text-align: center;
+  font-weight: 600;
+  color: #3c4f7c;
+}
+
+.avatar-option input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.avatar-option:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(60, 79, 124, 0.2);
+}
+
+.avatar-option.selected {
+  border-color: #7d92ff;
+  box-shadow: 0 12px 28px rgba(125, 146, 255, 0.4);
+}
+
+.avatar-option.locked {
+  cursor: not-allowed;
+  opacity: 0.6;
+  filter: grayscale(0.3);
+}
+
+.avatar-label {
+  font-size: 14px;
+}
+
+.lock-text {
+  font-size: 12px;
+  color: #ff7b5c;
+}
+
+.start-button {
+  padding: 14px 32px;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(90deg, #ff8a5b, #ffa95b);
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 12px 32px rgba(255, 138, 91, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.start-button:hover {
+  transform: translateY(-2px);
+}
+
+.start-button:disabled {
+  opacity: 0.6;
+  cursor: progress;
+  transform: none;
+}
+
+@media (max-width: 900px) {
+  .setup-body {
+    grid-template-columns: 1fr;
+  }
+
+  .preview-pane {
+    order: -1;
+  }
+}
